@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+
+{% block contenido %}
+<header>
+    <h1 class="text-center py-3">Agregar Laboratorio</h1>
+</header>
+
+<main class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre del Laboratorio</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input type="text" id="ciudad" name="ciudad" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="pais" class="form-label">País</label>
+            <input type="text" id="pais" name="pais" class="form-control">
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Laboratorio</button>
+    </form>
+</main>
+{% endblock %}

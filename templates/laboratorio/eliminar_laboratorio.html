@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+
+{% block contenido %}
+
+<header>
+    <h1 class="text-center py-3">Eliminación de laboratorio: {{laboratorio.id}} </h1>
+</header>
+
+<main class="container">
+    <section>
+        <h3>Datos del comentario:</h3>
+        <p>Nombre: {{laboratorio.nombre}}</p>
+        <p>Ciudad: {{laboratorio.ciudad}}</p>
+        <p>País: {{Pais.pais}}</p>
+        <p>Director: {{laboratorio.director}}</p>
+    </section>
+
+    <section>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Presione para eliminar." class="btn btn-danger">
+        </form>
+    </section>
+</main>
+
+{% endblock contenido %}

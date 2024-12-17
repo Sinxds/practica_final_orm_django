@@ -1,0 +1,54 @@
+{% extends "layouts/base.html" %}
+
+{% block contenido %}
+
+<header>
+    <h1 class="text-center py-3">Información de Laboratorios</h1>
+</header>
+
+<header>
+    <div class="mb-3">
+        <a href="{% url 'agregar_laboratorio' %}" class="btn btn-primary float-end">Agregar Laboratorio</a>
+    </div>
+</header>
+
+<main class="container-fluid py-3">
+    <div class="container">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr class="text-center align-middle">
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>País</th>
+                    <th>Nombre director:</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for laboratorio in laboratorios %}
+                <tr class="text-center align-middle">
+                    <td>{{ laboratorio.nombre }}</td>
+                    <td>{{ laboratorio.ciudad }}</td>
+                    <td>{{ laboratorio.pais }}</td>
+                    <td>{{ laboratorio.director.nombre }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_laboratorio' laboratorio.id %}" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil"></i> Actualizar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'eliminar_laboratorio' laboratorio.id %}" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+
+
+{% endblock contenido %}
